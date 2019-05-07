@@ -26,6 +26,7 @@ public class SimonSays extends KeyAdapter {
 	private int imageIndex;
 	private int tries = 0;
 	private boolean simonSays = false;
+	private int score;
 	Date timeAtStart;
 
 	// Complete steps 1 - 7 before you test
@@ -52,29 +53,46 @@ public class SimonSays extends KeyAdapter {
 		// 15. Make a points variable to track the score.
 		
 		// 16. If the keyCode matches the imageIndex and "Simon says"
-
+		if(e.getKeyCode() == imageIndex && simonSays == true) {
 		// 17. Increase the value of score
-
+			this.score++;
 		// 18. Use the speak method to tell the user they were correct
-
+		System.out.println("Correct");
+		frame.dispose();
+		showImage();
+		}else if(e.getKeyCode() != imageIndex && simonSays == true) {
+			System.out.println("Incorrect");
+			this.tries++;
+			frame.dispose();
+			showImage();
+			
+		}
 		// 19. If the keyCode doesn't match the imageIndex and "Simon didn't
 		// say..."
-
+		else if(e.getKeyCode() != imageIndex && simonSays == false){
 		// 20. Increase the value of score
-
+			this.score++;
 		// 21. Use the speak method to tell the user they were correct
-
+			System.out.println("Correct");
+		
 		// 22. Increment tries by 1
+			this.tries++;
+			// 23. Dispose of the frame
+			frame.dispose();
+			// 24. Call the showImage method to show a new image
+			showImage();
+			// 25. If tries is greater than 9 (or however many you want)...
+			if(this.tries > 9) {
+				
+				// 26. Tell the user their score
 
-		// 25. If tries is greater than 9 (or however many you want)...
-
-		// 26. Tell the user their score
-
-		// 27. Exit the program
-
-		// 23. Dispose of the frame
-
-		// 24. Call the showImage method to show a new image
+				JOptionPane.showMessageDialog(null,"Your score is: " + this.score);
+				// 27. Exit the program
+				System.exit(0);
+				}
+		}
+		
+		
 	}
 
 	private void showImage() {
@@ -101,10 +119,10 @@ public class SimonSays extends KeyAdapter {
 		// 13. Use the Random and the speak method to either say
 		// "Simon says press this key" or "Press this key"
 		int num = r.nextInt(2);
-		if(num == 1) {
+		if(num == 0) {
 			simonSays = true;
 			System.out.println("Simon says press this key");
-		}else if(num == 2) {
+		}else if(num == 1) {
 			System.out.println("Press this key");
 			simonSays = false;
 		}
