@@ -1,4 +1,5 @@
 package fortune_teller;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /*
@@ -14,6 +15,7 @@ public class FortuneTellerRunner {
     
     static void begin() {
       	 // Welcome the user. Give them a hint for the secret location.
+    	JOptionPane.showMessageDialog(null,"Welcome, here is a hint of the secret location: Your mouseX must be around 200-300 and your mouseY should be around 300-400");
 
     }
 }
