@@ -36,7 +36,7 @@ public void actionPerformed(ActionEvent arg0) {
 	JOptionPane.showMessageDialog(null,"Hi!");
 	if(arg0.getSource() == button1) {
 	JOptionPane.showMessageDialog(null,"Why do we tell actors to “break a leg?\r\n " + "\r\n" + "Because every play has a cast.");
-	}else {
+	}else if(arg0.getSource()== button2) {
 	JOptionPane.showMessageDialog(null,"Why did David Hasselhoff change his name to “The Hoff?”\r\n" +"\r\n" + "It’s less hassle.");
 	}
 }

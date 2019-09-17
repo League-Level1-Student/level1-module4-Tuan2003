@@ -68,7 +68,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    		 }
    	 }
 
-    }
+
 
     private boolean areClose(int mouseX, int secretLocationX) {
    	 return mouseX < secretLocationX + 15 && mouseX > secretLocationX - 15;
