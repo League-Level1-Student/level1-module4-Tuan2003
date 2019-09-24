@@ -21,7 +21,7 @@ private static JTextField textfield2 = new JTextField();
 */
 public static void main(String[] args) {
 frame.setSize(500,500);
-textfield1.setSize(20,50);
+textfield1.setSize(100,100);
 textfield2.setSize(100, 100);
 translate.setSize(100, 100);
 frame.setName("A Cool Pig Latin Translator");

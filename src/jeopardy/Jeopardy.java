@@ -41,8 +41,6 @@ public class Jeopardy implements ActionListener {
 	private int buttonCount = 0;
 	private AudioClip sound;
 
-
-
 	public void run() {
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
