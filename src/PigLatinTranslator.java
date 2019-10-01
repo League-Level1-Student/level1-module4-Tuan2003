@@ -1,5 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -7,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PigLatinTranslator implements ActionListener{
+public class PigLatinTranslator implements MouseListener{
 private static JFrame frame = new JFrame();
 private static JPanel panel = new JPanel();
 private static JButton translate = new JButton();
@@ -19,18 +21,26 @@ private static JTextField textfield2 = new JTextField();
 * @param c The character to test
 * @return True if it's a letter
 */
+public void createUI() {
+	frame.setSize(500,500);
+	textfield1.setSize(100,100);
+	textfield1.setText("English Here");
+	textfield2.setSize(100, 100);
+	textfield2.setText("Pig Latin Translation");
+	translate.setSize(100, 100);
+	frame.setName("A Cool Pig Latin Translator");
+	frame.add(panel);
+	translate.setText("Translate");
+	translate.addMouseListener(this);
+	panel.add(textfield1);	
+	panel.add(translate);
+	panel.add(textfield2);
+	frame.setVisible(true);
+	frame.pack();
+
+}
 public static void main(String[] args) {
-frame.setSize(500,500);
-textfield1.setSize(100,100);
-textfield2.setSize(100, 100);
-translate.setSize(100, 100);
-frame.setName("A Cool Pig Latin Translator");
-frame.add(panel);
-panel.add(textfield1);
-panel.add(translate);
-panel.add(textfield2);
-frame.setVisible(true);
-frame.pack();
+	new PigLatinTranslator().createUI();
 }
 private static boolean isLetter(char c) {
 return ( (c >= 'A' && c <= 'Z') || (c >='a' && c <= 'z') );
@@ -89,8 +99,32 @@ return i;
 return 0;
 }
 
+
 @Override
-public void actionPerformed(ActionEvent arg0) {
+public void mouseClicked(MouseEvent arg0) {
+	if(arg0.getSource() == translate) {
+		String output = translate(textfield1.getText());
+		textfield2.setText(output);
+	}
+	
+}
+@Override
+public void mouseEntered(MouseEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseExited(MouseEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mousePressed(MouseEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseReleased(MouseEvent arg0) {
 	// TODO Auto-generated method stub
 	
 }
